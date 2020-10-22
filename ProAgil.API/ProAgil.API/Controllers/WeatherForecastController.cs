@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using ProAgil.API.Data;
-using ProAgil.API.Model;
+using ProAgil.Repository;
 
 namespace ProAgil.API.Controllers
 {
@@ -15,39 +13,11 @@ namespace ProAgil.API.Controllers
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        public readonly DataContext _context;
-        public WeatherForecastController(DataContext context)
+        public readonly ProAgilContext _context;
+        public WeatherForecastController(ProAgilContext context)
         {
             _context = context;
         }
-
-        //private static readonly string[] Summaries = new[]
-        // {
-        //     "AAAAA", "BBBBB", "CCCCC", "DDDDD", "EEEE", "FFFFF", "GGGG", "HHHH", "IIIIII", "JJJJJ"
-        // };
-
-        //"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" 
-
-        //private readonly ILogger<WeatherForecastController> _logger;
-
-        //public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        //[HttpGet]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    var rng = new Random();
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        //Date = DateTime.Now.AddDays(index),
-        //        //TemperatureC = rng.Next(-20, 55),
-        //        //Summary = Summaries[rng.Next(Summaries.Length)]
-        //        Summary = Summaries[0]
-        //    })
-        //    .ToArray();
-        //}
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -68,7 +38,7 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                var result = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
+                var result = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);
                 return Ok(result);
             }
             catch (Exception)

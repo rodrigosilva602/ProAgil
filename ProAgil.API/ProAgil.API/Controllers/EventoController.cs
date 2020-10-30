@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -57,7 +59,7 @@ namespace ProAgil.API.Controllers
                     var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
                     var fullPath = Path.Combine(pathToSave, filename.Replace("\"", "").Trim());
 
-                    using (var stream = new FileStream(fullPath, FileMode.Create)) 
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
@@ -138,6 +140,20 @@ namespace ProAgil.API.Controllers
             {
                 var evento = await _repo.GetEventoAsyncById(EventoId, false);
                 if (evento == null) return NotFound();
+
+                var idLotes = new List<int>();
+                var idRedesSociais = new List<int>();
+
+                var lotes = evento.Lotes.Where(
+                    lote => !idLotes.Contains(lote.Id)
+                ).ToArray();
+
+                var redesSociais = evento.RedesSociais.Where(
+                    rede => !idLotes.Contains(rede.Id)
+                 ).ToArray();
+
+                if (lotes.Length > 0) _repo.DeleteRange(lotes);
+                if (redesSociais.Length > 0) _repo.DeleteRange(redesSociais);
 
                 _mapper.Map(model, evento);
 

@@ -34,5 +34,9 @@ export class NavComponent implements OnInit {
     this.toastr.show('Log Out');
     this.router.navigate(['/user/login']);
   }
-  
+
+  userName(){
+    return sessionStorage.getItem('username');
+  }
+
 }

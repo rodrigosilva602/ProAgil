@@ -25,6 +25,8 @@
     "bootstrap": "^4.5.3",
     "jquery": "^1.9.1",
     "ngx-bootstrap": "^6.1.0",
+    "ngx-currency": "^2.5.1",
+    "ngx-mask": "^10.0.4",
     "ngx-toastr": "^13.1.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

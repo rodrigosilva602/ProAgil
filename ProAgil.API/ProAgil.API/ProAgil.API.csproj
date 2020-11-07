@@ -3,31 +3,32 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\img1.jpg" />
-    <Content Include="Resources\Images\img2.jpg" />
-    <Content Include="Resources\Images\img3.jpg" />
-    <Content Include="Resources\Images\img5.jpg" />
+    <Content Include="Resources\Images\img1.jpg"/>
+    <Content Include="Resources\Images\img2.jpg"/>
+    <Content Include="Resources\Images\img3.jpg"/>
+    <Content Include="Resources\Images\img5.jpg"/>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\img\"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="4.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="4.0.1"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9"/>
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ProAgil.Domain\ProAgil.Domain.csproj" />
-    <ProjectReference Include="..\..\ProAgil.Repository\ProAgil.Repository.csproj" />
+    <ProjectReference Include="..\..\ProAgil.Domain\ProAgil.Domain.csproj"/>
+    <ProjectReference Include="..\..\ProAgil.Repository\ProAgil.Repository.csproj"/>
   </ItemGroup>
 </Project>

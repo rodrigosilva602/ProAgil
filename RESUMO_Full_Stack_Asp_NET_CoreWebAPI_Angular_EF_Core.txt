@@ -1,5 +1,4 @@
-## ProAgil Eventos
-
+﻿
 >>> Resumo do Curso
 
 ############## SEÇÂO 1 - INTRODUÇÃO AO .NET CORE ########################
